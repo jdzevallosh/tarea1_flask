@@ -5,8 +5,9 @@
 </head>
 <body>
     <nav>
-        <a href="{{ url_for('list_users') }}">Inicio / Usuarios</a>
-        <a href="{{ url_for('new_user') }}">Nuevo Usuario</a>
+        <a href="{{ url_for('list_users') }}">Inicio / Usuarios</a> | 
+        <a href="{{ url_for('new_user') }}">Nuevo Usuario</a> | 
+        <a href="{{ url_for('search_page') }}">Buscador HTMX</a>
     </nav>
     <hr>
     {% block content %}{% endblock %}

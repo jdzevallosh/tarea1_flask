@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Buscador de Usuarios (API + HTMX)</h2>
+
+<!-- CDN de HTMX -->
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+
+<p>
+    Buscar por Nombre: 
+    <input type="text" 
+           name="given_name" 
+           placeholder="Escribe 'Javier'..." 
+           hx-get="/api/users/search" 
+           hx-trigger="keyup changed delay:300ms" 
+           hx-target="#results">
+</p>
+
+<h3>Resultado JSON de la API:</h3>
+<pre id="results" style="background: #c58d8d; padding: 10px;">Empieza a escribir para buscar usuarios...</pre>
+{% endblock %}

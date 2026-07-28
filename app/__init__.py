@@ -103,4 +103,39 @@ def create_app():
 
         return redirect(url_for('list_users'))
 
+    # ENDPOINTS API (JSON) 
+
+    # Endpoint 1: Retorna todos los usuarios en formato JSON
+    @app.route('/api/users', methods=['GET'])
+    def api_list_users():
+        conn = get_db_connection()
+        users = conn.execute('SELECT * FROM users').fetchall()
+        conn.close()
+        return [dict(u) for u in users]
+
+    # Endpoint 2: Buscar usuarios por nombre en JSON (/api/users/search?given_name=Javier)
+    @app.route('/api/users/search', methods=['GET'])
+    def api_search_users():
+        name = request.args.get('given_name', '')
+        conn = get_db_connection()
+        users = conn.execute('SELECT * FROM users WHERE given_name LIKE ?', (f'%{name}%',)).fetchall()
+        conn.close()
+        return [dict(u) for u in users]
+
+    # Endpoint 3: Retorna un usuario por ID en JSON
+    @app.route('/api/users/<int:id>', methods=['GET'])
+    def api_get_user(id):
+        conn = get_db_connection()
+        user = conn.execute('SELECT * FROM users WHERE id = ?', (id,)).fetchone()
+        conn.close()
+        if user is None:
+            return {"error": "Usuario no encontrado"}, 404
+        return dict(user)
+
+    # VISTA PARA HTMX 
+
+    @app.route('/search', methods=['GET'])
+    def search_page():
+        return render_template('search.html')
+
     return app
