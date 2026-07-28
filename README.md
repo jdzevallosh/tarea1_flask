@@ -2,7 +2,7 @@ Tarea 01 - Aplicación Web con Flask
 
 Aplicación web desarrollada con Flask y SQLite que implementa un CRUD completo de usuarios, endpoints API en formato JSON y un buscador en tiempo real utilizando HTMX.
 
-## 🏛️ Arquitectura del Proyecto
+##  Arquitectura del Proyecto
 El proyecto sigue una estructura modular simple basada en Flask:
 - `app/__init__.py`: Contiene las rutas del CRUD HTML, la API JSON y la vista de HTMX.
 - `app/config.py`: Carga la configuración desde las variables de entorno.
@@ -13,5 +13,5 @@ El proyecto sigue una estructura modular simple basada en Flask:
 
 1. Clonar el repositorio:
    ```bash
-   git clone <URL_DE_TU_REPOSITORIO>
-   cd TAREA1_FLASK
+   git clone https://github.com/jdzevallosh/tarea1_flask.git
+   cd tarea1_flask
