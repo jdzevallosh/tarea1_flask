@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Editar Usuario</h2>
+
+<form action="{{ url_for('update_user', id=user['id']) }}" method="POST">
+    <p>DNI: <input type="text" name="dni" value="{{ user['dni'] }}" required></p>
+    <p>Nombres: <input type="text" name="given_name" value="{{ user['given_name'] }}" required></p>
+    <p>Apellidos: <input type="text" name="family_name" value="{{ user['family_name'] }}" required></p>
+    <p>Email: <input type="email" name="email" value="{{ user['email'] }}" required></p>
+    <p>Teléfono: <input type="text" name="phone_number" value="{{ user['phone_number'] }}"></p>
+    <p>Dirección: <input type="text" name="address" value="{{ user['address'] }}"></p>
+    <button type="submit">Actualizar</button>
+</form>
+{% endblock %}

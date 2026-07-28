@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD Usuarios</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('list_users') }}">Inicio / Usuarios</a>
+        <a href="{{ url_for('new_user') }}">Nuevo Usuario</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Detalle de {{ user['given_name'] }}</h2>
+
+<p><b>ID:</b> {{ user['id'] }}</p>
+<p><b>DNI:</b> {{ user['dni'] }}</p>
+<p><b>Nombres:</b> {{ user['given_name'] }}</p>
+<p><b>Apellidos:</b> {{ user['family_name'] }}</p>
+<p><b>Email:</b> {{ user['email'] }}</p>
+<p><b>Teléfono:</b> {{ user['phone_number'] }}</p>
+<p><b>Dirección:</b> {{ user['address'] }}</p>
+
+<a href="{{ url_for('list_users') }}">Volver</a>
+{% endblock %}
