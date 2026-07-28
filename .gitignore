@@ -216,3 +216,19 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# Entorno virtual
+.venv/
+__pycache__/
+*.pyc
+
+# Variables de entorno locales
+.env
+
+# Base de datos SQLite local
+app/database/database.db
+*.db
+
+# Archivos de sistema / IDE
+.vscode/
+.idea/
+.DS_Store
